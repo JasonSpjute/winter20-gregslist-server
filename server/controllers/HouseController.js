@@ -26,5 +26,11 @@ export class HouseController extends BaseController{
             next(error)
         }
     }
-    
+    async create(req, res, next) {
+        try{
+            res.send(await houseService.create(req.body))
+        }catch (error) {
+            next(error)
+        }
+    }
 }

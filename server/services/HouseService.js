@@ -12,5 +12,8 @@ class HouseService{
         }
         return houseFound
     }
+    async create(body) {
+        return await dbContext.Houses.create(body)
+    }
 }
 export const houseService = new HouseService()
