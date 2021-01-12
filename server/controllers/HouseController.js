@@ -1,3 +1,4 @@
+import { houseService } from "../services/HouseService";
 import BaseController from "../utils/BaseController";
 
 export class HouseController extends BaseController{
@@ -13,9 +14,17 @@ export class HouseController extends BaseController{
 
     async getAll(req, res, next) {
         try{
-            res.send(await houseservice.getAll(req.query))
+            res.send(await houseService.getAll(req.query))
         } catch (error) {
             next(error)
         }
     }
+    async getOne(req, res, next) {
+        try{
+            res.send(await houseService.getOne(req.params.id))
+        } catch (error) {
+            next(error)
+        }
+    }
+    
 }
